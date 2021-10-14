@@ -1,0 +1,9 @@
+[package]
+name = "rusoto-chain-credential"
+version = "0.1.0"
+edition = "2018"
+repository = "https://github.com/pbzweihander/rusoto-chain-credential"
+
+[dependencies]
+async-trait = "0.1.51"
+rusoto_credential = "0.47.0"
