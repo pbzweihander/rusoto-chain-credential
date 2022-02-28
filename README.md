@@ -10,6 +10,7 @@ let rusoto_client = rusoto_core::Client::new(
     rusoto_provider,
     rusoto_core::HttpClient::new().expect("failed to create request dispatcher"),
 );
+let sqs_client = rusoto_sqs::SqsClient::new_with_client(rusoto_client, Default::default());
 ```
 
 ## License
