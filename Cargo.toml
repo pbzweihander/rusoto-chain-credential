@@ -7,3 +7,4 @@ repository = "https://github.com/pbzweihander/rusoto-chain-credential"
 [dependencies]
 async-trait = "0.1.51"
 rusoto_credential = "0.47.0"
+tracing = "0.1.32"

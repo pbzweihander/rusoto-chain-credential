@@ -42,8 +42,13 @@ impl Default for ChainProvider {
 impl ProvideAwsCredentials for ChainProvider {
     async fn credentials(&self) -> Result<AwsCredentials, CredentialsError> {
         for provider in self.provider_list.iter() {
-            if let Ok(credentials) = provider.credentials().await {
-                return Ok(credentials);
+            match provider.credentials().await {
+                Ok(credentials) => {
+                    return Ok(credentials);
+                }
+                Err(error) => {
+                    tracing::debug!(%error, "credential provider returned error")
+                }
             }
         }
         Err(CredentialsError::new(
